@@ -6,6 +6,10 @@
     $numero = $_REQUEST['num'];
     $a_id = $_REQUEST['a_id'];
 
+    $origMail = $_REQUEST['origMail'];
+    $origNro = $_REQUEST['origNro'];
+    $origa_id = $_REQUEST['origa_id'];
+
     try
     {
         $host = "db.ist.utl.pt";
@@ -15,12 +19,12 @@
         $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "DELETE FROM correcao WHERE (email = :mail) AND (nro = :nro) AND (anomalia_id = :a_id);";
-
+        $sql = "UPDATE correcao SET email = :mail, nro = :nro, anomalia_id = :id  WHERE (email = :omail) AND (nro = :onro) AND (anomalia_id = :oa_id);";
+	
         $result = $db->prepare($sql);
-        $result->execute([':mail' => $mail, ':nro' => $numero, ':a_id' => a_id]);
+        $result->execute([':mail' => $mail, ':nro' => $numero, ':a_id' => $a_id, ':omail' => $origMail, ':onro' => $origNro, ':oa_id' => $origa_id]);
 
-        echo("<p>Removido com sucesso</p>");
+        echo("<p>Editado com sucesso</p>");
 
         $db = null;
 

@@ -3,6 +3,9 @@
     <body>
         <h3>Editar Correcao</h3>
         <form action="editCorrecao.php" method="post">
+	  <p><input type="hidden" name="origMail" value="<?=$_REQUEST['mailToEdit']?>"/</p>
+	  <p><input type="hidden" name="origNro" value="<?=$_REQUEST['nroToEdit']?>"/</p>
+	  <p><input type="hidden" name="origa_id" value="<?=$_REQUEST['a_idToEdit']?>"/</p>
 	  <p>E-mail: <input type="text" name="mail"/></p>
 	  <p>Numero: <input type="text" name="numero"/></p>
           <p>ID Anomalia: <input type="text" name="id_anomalia"/></p>

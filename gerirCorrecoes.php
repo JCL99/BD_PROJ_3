@@ -30,7 +30,7 @@
 	    echo("<td>");
             echo($row[2]);
             echo("</td>");
-	    echo("<td><a href=\"pageEditCorrecao.php?idToEdit={$row[0]}\">Editar</a></td>\n");
+	    echo("<td><a href=\"pageEditCorrecao.php?mailToEdit={$row[0]}&nroToEdit={$row[1]}&a_idToEdit={row[2]}\">Editar</a></td>\n");
             echo("<td><a href=\"removeCorrecao.php?umail={$row[0]}&num={$row[1]}&a_id={$row[2]}\">Apagar</a></td>\n");
 	    echo("<tr>\n");
         }
