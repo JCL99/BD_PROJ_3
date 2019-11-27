@@ -21,7 +21,7 @@
 
         $db = null;
 
-        header("Location: /ist190732/gerirLocais.php");
+        header("Location: /ist190732/BD_PROJ_3/gerirLocais.php");
         exit;
     }
     catch (PDOException $e)

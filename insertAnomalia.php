@@ -3,10 +3,12 @@
     <body>
 <?php
     $id = $_REQUEST['id'];
+    $zona = $_REQUEST['zona'];
+    $imagem = $_REQUEST['imagem'];
+    $lingua = $_REQUEST['lingua'];
+    $timestamp = $_REQUEST['timestamp'];
     $descricao = $_REQUEST['descricao'];
-    $localizacao = $_REQUEST['localizacao'];
-    $latitude = $_REQUEST['latitude'];
-    $longitude = $_REQUEST['longitude'];
+    $anomaliaRedacao = $_REQUEST['anomaliaRedacao'];
 
     try
     {
@@ -17,14 +19,14 @@
         $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO item VALUES(:id, :desc, :loc, :lat, :long);";
+        $sql = "INSERT INTO anomalia VALUES(:id, :zona, :img, :ling, :ts, :desc, :a_red);";
         $result = $db->prepare($sql);
-        $result->execute([':id' => $id, ':desc' => $descricao, ':loc'=> $localizacao, ':lat' => $latitude, ':long' => $longitude]);
+        $result->execute([':id' => $id, ':zona' => $zona, ':img'=> $imagem, ':ling' => $lingua, ':ts' => $timestamp, ':desc' => $descricao, ':a_red' => $anomaliaRedacao]);
         echo("<p>Inserido com sucesso</p>");
 
         $db = null;
 
-        header("Location: /ist190732/BD_PROJ_3/gerirItems.php");
+        header("Location: /ist190732/BD_PROJ_3/gerirAnomalias.php");
         exit;
     }
     catch (PDOException $e)
