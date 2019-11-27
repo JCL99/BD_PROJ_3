@@ -12,23 +12,36 @@
         $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT nomeEntidade FROM EntidadeMeio;";
+        $sql = "SELECT * FROM item;";
         $result = $db->prepare($sql);
         $result->execute();
 
         echo("<p><a href=\"home.php\">< Home</a></p>");
-        echo("<h1> Entidades <h1>");
+        echo("<h1> Items <h1>");
         echo("<table border=\"1\">\n");
-        echo("<tr><td>nomeEntidade</td><td><a href=\"insertFormEntidade.php\">Novo</a></td></tr>\n");
+        echo("<tr align='center'><td>ID</td><td>Descricao</td><td>Localizacao</td><td>Latitude</td><td>Longitude</td><td>Apagar</td></tr>\n");
         foreach($result as $row)
         {
             echo("<tr><td>");
             echo($row[0]);
             echo("</td><td>");
-            echo("<a href=\"removeEntidade.php?nomeEntidade={$row[0]}\">Apagar</a></td>\n");
-            echo("<tr>");
+            echo($row[1]);
+            echo("</td>");
+	    echo("<td>");
+            echo($row[2]);
+            echo("</td>");
+	    echo("<td>");
+            echo($row[3]);
+            echo("</td>");
+	    echo("<td>");
+            echo($row[4]);
+            echo("</td>");
+	    echo("<td><a href=\"removeItem.php?idToRemove={$row[0]}\">Apagar</a></td>\n");
+            echo("<tr>\n");
         }
-        echo("</table>\n");
+	//echo("<tr><td><a href=\"pageInsertLocal.php\">Novo</a></td><td></td><td></td><td></td></tr>");
+       	echo("<tr><td colspan=6 align='center'><a href=\"pageInsertItem.php\"> Novo Item </a></td></tr>");
+	echo("</table>\n");
 
         $db = null;
 

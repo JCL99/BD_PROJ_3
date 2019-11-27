@@ -2,26 +2,26 @@
 <head><link rel="stylesheet" href="styles.css"></head>
     <body>
 <?php
-    $nomeEntidade = $_REQUEST['nomeEntidade'];
+    $nomeLocal = $_REQUEST['nomeLocal'];
     try
     {
         $host = "db.ist.utl.pt";
-        $user ="ist187679";
-        $password = "ola123456";
+        $user ="ist190732";
+        $password = "12345678";
         $dbname = $user;
         $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO EntidadeMeio values (:nomeEntidade);";
+        $sql = "DELETE FROM local_publico WHERE nome = :nomeLocal;";
 
         $result = $db->prepare($sql);
-        $result->execute([':nomeEntidade' => $nomeEntidade]);
+        $result->execute([':nomeLocal' => $nomeLocal]);
 
-        echo("<p>Inserido com sucesso</p>");
+        echo("<p>Removido com sucesso</p>");
 
         $db = null;
 
-        header("Location: /ist187679/formEntidade.php");
+        header("Location: /ist190732/gerirLocais.php");
         exit;
     }
     catch (PDOException $e)

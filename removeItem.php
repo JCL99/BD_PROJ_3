@@ -2,34 +2,27 @@
 <head><link rel="stylesheet" href="styles.css"></head>
     <body>
 <?php
+    $id = $_REQUEST['idToRemove'];
     try
     {
         $host = "db.ist.utl.pt";
-        $user ="ist187679";
-        $password = "ola123456";
+        $user ="ist190732";
+        $password = "12345678";
         $dbname = $user;
-
-
         $db = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT numProcessoSocorro FROM ProcessoSocorro";
-        $result = $db->prepare($sql);
-        $result->execute();
+        $sql = "DELETE FROM item WHERE id = :idToRemove;";
 
-        echo("<p><a href=\"home.php\">< Home</a></p>");
-        echo("<table border=\"1\">\n");
-        echo("<tr><td>numProcessoSocorro</td></tr>\n");
-        foreach($result as $row)
-        {
-            echo("<tr><td>");
-            echo($row[0]);
-            echo("</td></tr>\n");
-        }
-        echo("</table>\n");
+        $result = $db->prepare($sql);
+        $result->execute([':idToRemove' => $id]);
+
+        echo("<p>Removido com sucesso</p>");
 
         $db = null;
 
+        header("Location: /ist190732/gerirItems.php");
+        exit;
     }
     catch (PDOException $e)
     {

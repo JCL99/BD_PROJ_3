@@ -5,7 +5,7 @@
 		<h1>Projeto BD - Parte 3</h1>
 		</font></p>
     <h3 class="title"> Inserir e remover: </h3>
-		<p><td><a href="gerirLocais.html"> Locais</a>  &nbsp&nbsp  </td>
+		<p><td><a href="gerirLocais.php"> Locais</a>  &nbsp&nbsp  </td>
 		   <td><a href="gerirItems.php"> Items</a>  &nbsp&nbsp  </td>
 		   <td><a href="gerirAnomalias.php"> Anomalias</a>  &nbsp&nbsp  </td></p>
 
