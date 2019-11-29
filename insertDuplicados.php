@@ -3,7 +3,7 @@
     <body>
 <?php
     $oid = $_REQUEST['oid'];
-    $did = $_REQUEST['idd'];
+    $did = $_REQUEST['did'];
 
     try
     {
