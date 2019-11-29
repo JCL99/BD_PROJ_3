@@ -17,28 +17,26 @@
         $result->execute();
 
         echo("<p><a href=\"home.php\">< Home</a></p>");
-        echo("<h1> Propostas de correcao <h1>");
+        echo("<h1> Propostas de Correcao <h1>");
         echo("<table border=\"1\">\n");
-        echo("<tr align='center'><td>E-mail</td><td>Numero</td><td>Data hora</td><td>Texto</td><td>Editar</td><td>Apagar</td></tr>\n");
+        echo("<tr align='center'><td>E-mail</td><td>Numero</td><td>Data e Hora</td><td>Texto</td><td>Editar</td><td>Apagar</td></tr>\n");
         foreach($result as $row)
         {
             echo("<tr><td>");
             echo($row[0]);
             echo("</td><td>");
             echo($row[1]);
-            echo("</td>");
-	    echo("<td>");
+            echo("</td><td>");
             echo($row[2]);
-            echo("</td>");
-	    echo("<td>");
+            echo("</td><td>");
             echo($row[3]);
             echo("</td>");
-	    echo("<td><a href=\"pageEditProposta.php?mailToEdit={$row[0]}&nroToEdit={$row[1]}&a_idToEdit={row[2]}\">Editar</a></td>\n");
-            echo("<td><a href=\"removeProposta.php?umail={$row[0]}&num={$row[1]}&a_id={$row[2]}\">Apagar</a></td>\n");
+	    echo("<td><a href=\"pageEditPropostaCorrecao.php?mailToEdit={$row[0]}&nroToEdit={$row[1]}&datahoraToEdit={$row[2]}&textoToEdit={$row[3]}\">Editar</a></td>\n");
+            echo("<td><a href=\"removePropostaCorrecao.php?umail={$row[0]}&num={$row[1]}\">Apagar</a></td>\n");
 	    echo("<tr>\n");
         }
 	
-       	echo("<tr><td colspan=6 align='center'><a href=\"pageInsertCorrecao.php\"> Nova Correcao </a></td></tr>");
+       	echo("<tr><td colspan=5 align='center'><a href=\"pageInsertPropostaCorrecao.php\"> Nova Proposta de Correcao </a></td></tr>");
 	echo("</table>\n");
 
         $db = null;
