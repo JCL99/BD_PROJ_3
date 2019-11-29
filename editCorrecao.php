@@ -2,13 +2,15 @@
 <head><link rel="stylesheet" href="styles.css"></head>
     <body>
 <?php
-    $mail = $_REQUEST['umail'];
+    $mail = $_REQUEST['mail'];
     $numero = $_REQUEST['num'];
     $a_id = $_REQUEST['a_id'];
 
     $origMail = $_REQUEST['origMail'];
     $origNro = $_REQUEST['origNro'];
     $origa_id = $_REQUEST['origa_id'];
+
+	echo($mail);echo($numero);echo($a_id);echo($origMail);echo($origNro);echo($origa_id);
 
     try
     {
@@ -28,7 +30,7 @@
 
         $db = null;
 
-        header("Location: /ist190732/gerirCorrecoes.php");
+        header("Location: /ist190732/BD_PROJ_3/gerirCorrecoes.php");
         exit;
     }
     catch (PDOException $e)

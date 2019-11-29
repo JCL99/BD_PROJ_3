@@ -17,8 +17,8 @@
     <p><td><a href="listarUtilizadores.php"> Utilizadores</a>  &nbsp&nbsp  </td></p>
 
     <h3 class="title"> Registar: </h3>
-    <p><td><a href="registarIncidencias.php"> Incidencias</a>   &nbsp&nbsp  </td>
-       <td><a href="registarDuplicados.php"> Duplicados</a></td></p>
+    <p><td><a href="pageInsertIncidencia.php"> Incidencias</a>   &nbsp&nbsp  </td>
+       <td><a href="pageInsertDuplicados.php"> Duplicados</a></td></p>
 
 
     <p></p>
