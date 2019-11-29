@@ -22,7 +22,7 @@
 
 
     <p></p>
-    <p><td><a href="listarAnomalias.php"> Listar todas as anomalias de incidências registadas na área compreendida entre dois locais públicos</a></td></p>
+    <p><td><a href="pageListBetween.php"> Listar todas as anomalias de incidências registadas na área compreendida entre dois locais públicos</a></td></p>
     <p><td><a href="dadosxy.php"> Dados (X,Y) com (latitude, longitude) em graus expressos em notação decimal, listar todas as anomalias registadas nos últimos três meses a mais ou menos (dX, dY) graus de (latitude, longitude)</a></td></p>
 
 	</body>
